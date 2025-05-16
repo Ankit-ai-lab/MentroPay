@@ -9,7 +9,11 @@
   <body>
     <header>
       <h1>Admin Dashboard</h1>
-      <button id="generate-receipt">Generate & Send Receipt</button>
+      <div class="header-actions">
+        <input type="text" id="searchInput" placeholder="Search mentor..." />
+        <button id="export-csv">Export CSV</button>
+        <button id="generate-receipt">Generate & Send Receipt</button>
+      </div>
     </header>
 
     <main>
@@ -34,13 +38,15 @@
       <!-- Session Table with Filters -->
       <section>
         <h2>All Sessions</h2>
-        <label for="filter">Filter:</label>
-        <select id="filter">
-          <option value="7">Last 7 days</option>
-          <option value="15">Last 15 days</option>
-          <option value="30">Last 30 days</option>
-          <option value="all">All</option>
-        </select>
+        <div class="filter-bar">
+          <label for="filter">Filter:</label>
+          <select id="filter">
+            <option value="7">Last 7 days</option>
+            <option value="15">Last 15 days</option>
+            <option value="30">Last 30 days</option>
+            <option value="all">All</option>
+          </select>
+        </div>
 
         <table id="session-table">
           <thead>
@@ -51,6 +57,7 @@
               <th>Rate</th>
               <th>Total</th>
               <th>Status</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -60,10 +67,24 @@
         <div class="total-display">Total Payout: ₹0</div>
       </section>
 
+      <!-- Receipt Modal -->
+      <div id="receipt-modal" class="modal hidden">
+        <div class="modal-content">
+          <h3>Receipt Preview</h3>
+          <div id="receipt-details">
+            <!-- Filled dynamically -->
+          </div>
+          <button id="close-receipt">Close</button>
+        </div>
+      </div>
+
       <!-- Chat Section -->
       <section>
         <h2>Chat with Mentors</h2>
-        <div class="chat-window" id="chat-window"></div>
+        <div class="chat-window" id="chat-window">
+          <!-- Example message -->
+          <!-- <div class="message"><span>Admin:</span> Hello! <span class="time">10:32 AM</span></div> -->
+        </div>
         <div class="chat-input-container">
           <textarea
             id="chat-textarea"
