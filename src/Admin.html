@@ -35,16 +35,31 @@
       <section>
         <h2>Add Mentor Session</h2>
         <form id="session-form">
-          <input type="text" placeholder="Mentor Name" required />
-          <input type="datetime-local" required />
-          <select required>
+          <input
+            type="text"
+            id="mentorName"
+            placeholder="Mentor Name"
+            required
+          />
+          <input type="datetime-local" id="sessionDate" required />
+          <select id="sessionType" required>
             <option value="">Session Type</option>
             <option value="Live">Live</option>
             <option value="Evaluation">Evaluation</option>
             <option value="Recorded">Recorded</option>
           </select>
-          <input type="number" placeholder="Duration (min)" required />
-          <input type="number" placeholder="Rate (per hour ₹)" required />
+          <input
+            type="number"
+            id="duration"
+            placeholder="Duration (min)"
+            required
+          />
+          <input
+            type="number"
+            id="rate"
+            placeholder="Rate (per hour ₹)"
+            required
+          />
           <button type="submit">Add</button>
         </form>
       </section>
@@ -71,7 +86,6 @@
               <th>Rate</th>
               <th>Total</th>
               <th>Status</th>
-              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -114,6 +128,6 @@
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
 
     <!-- Admin Logic -->
-    <script src="/MentroPay/JS/admin.js"></script>
+    <script src="/JS/admin.js"></script>
   </body>
 </html>
