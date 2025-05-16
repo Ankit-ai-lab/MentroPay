@@ -12,6 +12,20 @@
       <button id="generate-receipt">Generate & Send Receipt</button>
     </header>
 
+    <div id="sidebar-menu" class="sidebar hidden">
+      <a class="link" href="index.html">Home</a>
+      <a class="link" href="campaign.html">Admin Dashboard</a>
+      <a class="link" href="donate.html">Mentor Dashboard</a>
+      <a class="link" href="contact.html">Contact Us</a>
+
+      <a href="login.html" id="signin-btn"><button>Signin</button></a>
+
+      <div id="user-info" class="user-info">
+        <div id="user-initial" class="user-initial">U</div>
+        <button id="logout-btn">Logout</button>
+      </div>
+    </div>
+
     <main>
       <!-- Add Session Form -->
       <section>
@@ -79,6 +93,6 @@
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
 
     <!-- Admin Logic -->
-    <script src="admin.js"></script>
+    <script src="/MentroPay/JS/admin.js"></script>
   </body>
 </html>
