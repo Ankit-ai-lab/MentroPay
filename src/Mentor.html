@@ -1,0 +1,89 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mentor Dashboard</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/MentroPay/CSS/dashboardstyle.css" />
+  </head>
+  <body>
+    <header class="dashboard-header">
+      <span class="material-symbols-outlined menu-icon" id="hamburger"
+        >menu</span
+      >
+      <h1>Mentor Dashboard</h1>
+      <button id="logout">Logout</button>
+    </header>
+
+    <!-- Sidebar Menu -->
+    <div id="sidebar-menu" class="sidebar hidden">
+      <a class="link" href="index.html">Home</a>
+      <a class="link" href="campaign.html">Admin Dashboard</a>
+      <a class="link" href="donate.html">Mentor Dashboard</a>
+      <a class="link" href="contact.html">Contact Us</a>
+
+      <a href="login.html" id="signin-btn"><button>Signin</button></a>
+
+      <div id="user-info" class="user-info">
+        <div id="user-initial" class="user-initial">U</div>
+        <button id="logout-btn">Logout</button>
+      </div>
+    </div>
+
+    <main class="mentor-dashboard">
+      <section class="session-history">
+        <h2>Session History</h2>
+        <div class="filters">
+          <label for="mentor-filter">Filter:</label>
+          <select id="mentor-filter">
+            <option value="7">Last 7 Days</option>
+            <option value="15">Last 15 Days</option>
+            <option value="30">Last 30 Days</option>
+            <option value="custom">Custom Range</option>
+          </select>
+          <div id="mentor-custom-range" style="display: none">
+            <input type="date" id="mentor-start-date" />
+            <input type="date" id="mentor-end-date" />
+          </div>
+        </div>
+        <table id="mentor-session-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Type</th>
+              <th>Duration</th>
+              <th>Rate</th>
+              <th>Total</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <div id="mentor-total" class="total-display"></div>
+        <button id="download-receipt">Download Receipt</button>
+      </section>
+
+      <section class="chat-section">
+        <h2>Chat with Admin</h2>
+        <div class="chat-window" id="chat-window"></div>
+
+        <form id="chat-form">
+          <input
+            type="text"
+            id="chat-input"
+            placeholder="Type a message..."
+            required
+          />
+          <button type="submit">Send</button>
+        </form>
+      </section>
+    </main>
+
+    <script type="module" src="firebase-config.js"></script>
+    <script type="module" src="/MentroPay/JS/mentor.js"></script>
+  </body>
+</html>
