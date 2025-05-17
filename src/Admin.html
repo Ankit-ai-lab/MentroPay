@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Admin Dashboard - Payout System</title>
-    <link rel="stylesheet" href="/MentroPay/CSS/dashboardstyle.css" />
+    <link rel="stylesheet" href="/MentroPay/CSS/adminTest.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
     <header>
@@ -17,64 +18,44 @@
       </div>
     </header>
 
-    <div id="sidebar-menu" class="sidebar hidden">
-      <a class="link" href="index.html">Home</a>
-      <a class="link" href="campaign.html">Admin Dashboard</a>
-      <a class="link" href="donate.html">Mentor Dashboard</a>
-      <a class="link" href="contact.html">Contact Us</a>
-
-      <a href="login.html" id="signin-btn"><button>Signin</button></a>
-
-      <div id="user-info" class="user-info">
-        <div id="user-initial" class="user-initial">U</div>
-        <button id="logout-btn">Logout</button>
-      </div>
+    <div class="sidebar">
+      <nav>
+        <a href="admin-add-session.html">➕ Add Session</a>
+        <a href="define-breakdown.html">🧮 Breakdown & Taxes</a>
+        <a href="generate-receipt.html">🧾 Generate Receipts</a>
+        <a href="chat.html">💬 Chat</a>
+        <a href="audit-trail.html">📜 Audit Trail</a>
+      </nav>
     </div>
 
     <main>
-      <!-- Add this new section before your existing sections -->
-      <section class="mentor-list-section">
-        <h2>Mentor List</h2>
-        <div class="controls">
-          <input type="text" id="mentorSearch" placeholder="Search mentors...">
-          <button id="exportButton">Export CSV</button>
-        </div>
-        <div id="mentor-list"></div>
-        <div id="pagination"></div>
-      </section>
-
-      <!-- Add Session Form -->
-      <section>
-        <h2>Add Mentor Session</h2>
-        <form id="session-form">
-          <input
-            type="text"
-            id="mentorName"
-            placeholder="Mentor Name"
-            required
-          />
-          <input type="datetime-local" id="sessionDate" required />
-          <select id="sessionType" required>
-            <option value="">Session Type</option>
-            <option value="Live">Live</option>
-            <option value="Evaluation">Evaluation</option>
-            <option value="Recorded">Recorded</option>
-          </select>
-          <input
-            type="number"
-            id="duration"
-            placeholder="Duration (min)"
-            required
-          />
-          <input
-            type="number"
-            id="rate"
-            placeholder="Rate (per hour ₹)"
-            required
-          />
-          <button type="submit">Add</button>
-        </form>
-      </section>
+      <div class="main-content">
+        <!-- Stats Section -->
+        <section class="stats">
+          <div class="stat-card">
+            <h3>Total Mentors</h3>
+            <p id="total-mentors">280</p>
+            <button
+              id="view-mentors"
+              class="view-button"
+              onclick="viewMentors()"
+            >
+              View
+            </button>
+          </div>
+          <div class="stat-card">
+            <h3>Sessions This Month</h3>
+            <p id="monthly-sessions">112</p>
+          </div>
+          <div class="stat-card">
+            <h3>Total Payout</h3>
+            <p id="total-payout">₹78,450</p>
+          </div>
+          <div class="stat-card">
+            <h3>Pending Receipts</h3>
+            <p id="pending-receipts">6</p>
+          </div>
+        </section>
 
         <!-- Recent Activity -->
         <section class="recent-activity">
@@ -125,11 +106,42 @@
       </section>
     </main>
 
-    <!-- Firebase Scripts -->
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
-
-    <!-- Admin Logic -->
     <script src="/MentroPay/JS/admin.js"></script>
+    <script>
+      // Dark mode toggle
+      document.getElementById("toggle-theme").onclick = () => {
+        document.body.classList.toggle("dark-mode");
+      };
+
+      const ctx = document.getElementById("payoutChart").getContext("2d");
+      const payoutChart = new Chart(ctx, {
+        type: "bar", // Change to 'line', 'pie', 'bar', 'doughnut','radar' etc. if needed
+        data: {
+          labels: ["Week 1", "Week 2", "Week 3", "Week 4"],
+          datasets: [
+            {
+              label: "Total Payout (₹)",
+              data: [4500, 6200, 5100, 7300], // Example data
+              backgroundColor: "#3b82f6",
+              borderColor: "#1e40af",
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+
+      // Function to view mentors
+      function viewMentors() {
+        window.location.href = "admin-total-mentors.html";
+      }
+    </script>
   </body>
 </html>
