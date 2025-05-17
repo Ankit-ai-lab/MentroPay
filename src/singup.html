@@ -1,50 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Sign Up</title>
-  <link rel="stylesheet" href="/CSS/singup.css">
-</head>
-<body>
-  <div class="container">
-    <div class="form-box">
-      <h4>JOIN US</h4>
-      <h1>Create your account<span>.</span></h1>
-      <p>Already have an account? <a href="login.html">Login</a></p>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sign Up</title>
+    <!-- <link rel="stylesheet" href="/CSS/singup.css"> -->
+    <link rel="stylesheet" href="/MentroPay/CSS/singup.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-box">
+        <h4>JOIN US</h4>
+        <h1>Create your account<span>.</span></h1>
+        <p>Already have an account? <a href="login.html">Login</a></p>
 
-      <!-- Role selection -->
-      <div class="login-options">
-        <div class="login-option active" onclick="switchLoginType(this, 'mentor')">Mentor</div>
-        <div class="login-option" onclick="switchLoginType(this, 'admin')">Admin</div>
-      </div>
-
-      <!-- Signup Form -->
-      <form id="signupForm">
-        <input type="text" id="signupName" placeholder="Full Name" required>
-        <input type="email" id="signupEmail" placeholder="Email" required>
-        <input type="password" id="signupPassword" placeholder="Password" required>
-        <input type="password" id="signupConfirm" placeholder="Confirm Password" required>
-        <input type="hidden" id="signupRole" value="mentor">
-
-        <div class="buttons">
-          <button type="submit" class="login-btn">Sign Up</button>
+        <!-- Role selection -->
+        <div class="login-options">
+          <div
+            class="login-option active"
+            onclick="switchLoginType(this, 'mentor')"
+          >
+            Mentor
+          </div>
+          <div class="login-option" onclick="switchLoginType(this, 'admin')">
+            Admin
+          </div>
         </div>
-      </form>
+
+        <!-- Signup Form -->
+        <form id="signupForm">
+          <input type="text" id="signupName" placeholder="Full Name" required />
+          <input type="email" id="signupEmail" placeholder="Email" required />
+          <input
+            type="password"
+            id="signupPassword"
+            placeholder="Password"
+            required
+          />
+          <input
+            type="password"
+            id="signupConfirm"
+            placeholder="Confirm Password"
+            required
+          />
+          <input type="hidden" id="signupRole" value="mentor" />
+
+          <div class="buttons">
+            <button type="submit" class="login-btn">Sign Up</button>
+          </div>
+        </form>
+      </div>
     </div>
-  </div>
 
-  <!-- JS to switch role button -->
-  <script>
-    function switchLoginType(element, type) {
-      document.querySelectorAll('.login-option').forEach(option => {
-        option.classList.remove('active');
-      });
-      element.classList.add('active');
-      document.getElementById('signupRole').value = type;
-    }
-  </script>
+    <!-- JS to switch role button -->
+    <script>
+      function switchLoginType(element, type) {
+        document.querySelectorAll(".login-option").forEach((option) => {
+          option.classList.remove("active");
+        });
+        element.classList.add("active");
+        document.getElementById("signupRole").value = type;
+      }
+    </script>
 
-  <!-- Firebase signup logic -->
-  <script type="module" src="/JS/auth.js"></script>
-</body>
+    <!-- Firebase signup logic -->
+    <script type="module" src="/MentroPay/JS/auth.js"></script>
+  </body>
 </html>
