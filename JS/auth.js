@@ -1,14 +1,18 @@
 import { auth, db } from "./firebase-init.js";
 import {
   signInWithEmailAndPassword,
-  createUserWithEmailAndPassword
+  createUserWithEmailAndPassword,
 } from "https://www.gstatic.com/firebasejs/11.7.3/firebase-auth.js";
-import { ref, get, set } from "https://www.gstatic.com/firebasejs/11.7.3/firebase-database.js";
+import {
+  ref,
+  get,
+  set,
+} from "https://www.gstatic.com/firebasejs/11.7.3/firebase-database.js";
 
 // Signup Form Handler
 document.getElementById("signupForm")?.addEventListener("submit", async (e) => {
   e.preventDefault();
-  
+
   const email = document.getElementById("signupEmail").value;
   const password = document.getElementById("signupPassword").value;
   const confirmPassword = document.getElementById("signupConfirm").value;
@@ -23,7 +27,11 @@ document.getElementById("signupForm")?.addEventListener("submit", async (e) => {
 
   try {
     // Create user in Firebase Auth
-    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    const userCredential = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
     const uid = userCredential.user.uid;
 
     // Store additional user data in Realtime Database
@@ -31,16 +39,16 @@ document.getElementById("signupForm")?.addEventListener("submit", async (e) => {
       fullName: fullName,
       email: email,
       role: role,
-      createdAt: new Date().toISOString()
+      createdAt: new Date().toISOString(),
     });
 
     alert("Signup successful!");
-    
+
     // Redirect based on role
     if (role === "admin") {
-      window.location.href = "/src/Admin.html";
+      window.location.href = "/MentroPay/src/Admin.html";
     } else {
-      window.location.href = "/src/Mentor.html";
+      window.location.href = "/MentroPay/src/Mentor.html";
     }
   } catch (error) {
     alert("Signup Failed: " + error.message);
@@ -55,7 +63,11 @@ document.getElementById("loginForm")?.addEventListener("submit", async (e) => {
   const selectedRole = document.getElementById("loginRole").value; // Get selected role
 
   try {
-    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    const userCredential = await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
     const uid = userCredential.user.uid;
 
     // Check if user exists in the selected role
@@ -66,13 +78,17 @@ document.getElementById("loginForm")?.addEventListener("submit", async (e) => {
       // User exists in the selected role
       if (selectedRole === "admin") {
         alert("Admin login successful!");
-        window.location.href = "/src/Admin.html";
+        window.location.href = "/MentroPay/src/Admin.html";
       } else {
         alert("Mentor login successful!");
-        window.location.href = "/src/Mentor.html";
+        window.location.href = "/MentroPay/src/Mentor.html";
       }
     } else {
-      alert("You don't have access as " + selectedRole + ". Please select the correct role.");
+      alert(
+        "You don't have access as " +
+          selectedRole +
+          ". Please select the correct role."
+      );
       auth.signOut(); // Sign out if wrong role selected
     }
   } catch (error) {
