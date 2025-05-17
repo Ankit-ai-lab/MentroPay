@@ -4,130 +4,144 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Admin Dashboard - Payout System</title>
-    <link rel="stylesheet" href="/MentroPay/CSS/dashboardstyle.css" />
+    <link rel="stylesheet" href="/MentroPay/CSS/adminTest.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
     <header>
-      <h1>Admin Dashboard</h1>
+      <h1 class="glow-text">Admin Dashboard</h1>
       <div class="header-actions">
-        <input type="text" id="searchInput" placeholder="Search mentor..." />
+        <input type="text" id="searchInput" placeholder="Search mentor..."
+        class="search" / >
+        <button id="toggle-theme">🌙</button>
         <button id="export-csv">Export CSV</button>
-        <button id="generate-receipt">Generate & Send Receipt</button>
       </div>
     </header>
 
-    <div id="sidebar-menu" class="sidebar hidden">
-      <a class="link" href="index.html">Home</a>
-      <a class="link" href="campaign.html">Admin Dashboard</a>
-      <a class="link" href="donate.html">Mentor Dashboard</a>
-      <a class="link" href="contact.html">Contact Us</a>
-
-      <a href="login.html" id="signin-btn"><button>Signin</button></a>
-
-      <div id="user-info" class="user-info">
-        <div id="user-initial" class="user-initial">U</div>
-        <button id="logout-btn">Logout</button>
-      </div>
+    <div class="sidebar">
+      <nav>
+        <a href="admin-add-session.html">➕ Add Session</a>
+        <a href="define-breakdown.html">🧮 Breakdown & Taxes</a>
+        <a href="generate-receipt.html">🧾 Generate Receipts</a>
+        <a href="chat.html">💬 Chat</a>
+        <a href="audit-trail.html">📜 Audit Trail</a>
+      </nav>
     </div>
 
     <main>
-      <!-- Add Session Form -->
-      <section>
-        <h2>Add Mentor Session</h2>
-        <form id="session-form">
-          <input
-            type="text"
-            id="mentorName"
-            placeholder="Mentor Name"
-            required
-          />
-          <input type="datetime-local" id="sessionDate" required />
-          <select id="sessionType" required>
-            <option value="">Session Type</option>
-            <option value="Live">Live</option>
-            <option value="Evaluation">Evaluation</option>
-            <option value="Recorded">Recorded</option>
-          </select>
-          <input
-            type="number"
-            id="duration"
-            placeholder="Duration (min)"
-            required
-          />
-          <input
-            type="number"
-            id="rate"
-            placeholder="Rate (per hour ₹)"
-            required
-          />
-          <button type="submit">Add</button>
-        </form>
-      </section>
-
-      <!-- Session Table with Filters -->
-      <section>
-        <h2>All Sessions</h2>
-        <div class="filter-bar">
-          <label for="filter">Filter:</label>
-          <select id="filter">
-            <option value="7">Last 7 days</option>
-            <option value="15">Last 15 days</option>
-            <option value="30">Last 30 days</option>
-            <option value="all">All</option>
-          </select>
-        </div>
-
-        <table id="session-table">
-          <thead>
-            <tr>
-              <th>Mentor</th>
-              <th>Type</th>
-              <th>Duration</th>
-              <th>Rate</th>
-              <th>Total</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- Session rows injected here -->
-          </tbody>
-        </table>
-        <div class="total-display">Total Payout: ₹0</div>
-      </section>
-
-      <!-- Receipt Modal -->
-      <div id="receipt-modal" class="modal hidden">
-        <div class="modal-content">
-          <h3>Receipt Preview</h3>
-          <div id="receipt-details">
-            <!-- Filled dynamically -->
+      <div class="main-content">
+        <!-- Stats Section -->
+        <section class="stats">
+          <div class="stat-card">
+            <h3>Total Mentors</h3>
+            <p id="total-mentors">280</p>
+            <button
+              id="view-mentors"
+              class="view-button"
+              onclick="viewMentors()"
+            >
+              View
+            </button>
           </div>
-          <button id="close-receipt">Close</button>
-        </div>
+          <div class="stat-card">
+            <h3>Sessions This Month</h3>
+            <p id="monthly-sessions">112</p>
+          </div>
+          <div class="stat-card">
+            <h3>Total Payout</h3>
+            <p id="total-payout">₹78,450</p>
+          </div>
+          <div class="stat-card">
+            <h3>Pending Receipts</h3>
+            <p id="pending-receipts">6</p>
+          </div>
+        </section>
+
+        <!-- Recent Activity -->
+        <section class="recent-activity">
+          <h2>🕒 Recent Activity</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Mentor</th>
+                <th>Session Type</th>
+                <th>Date</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Priya Sharma</td>
+                <td>Live</td>
+                <td>2025-05-15</td>
+                <td>₹1500</td>
+              </tr>
+              <tr>
+                <td>Amit Rathi</td>
+                <td>Evaluation</td>
+                <td>2025-05-14</td>
+                <td>₹1000</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- Placeholder Chart -->
+        <section class="payout-overview">
+          <h2>Payout Overview</h2>
+          <canvas id="payoutChart"></canvas>
+        </section>
       </div>
 
-      <!-- Chat Section -->
-      <section>
-        <h2>Chat with Mentors</h2>
-        <div class="chat-window" id="chat-window">
-          <!-- Example message -->
-          <!-- <div class="message"><span>Admin:</span> Hello! <span class="time">10:32 AM</span></div> -->
-        </div>
-        <div class="chat-input-container">
-          <textarea
-            id="chat-textarea"
-            placeholder="Type your message here..."
-          ></textarea>
-          <button id="send-btn">Send</button>
-        </div>
+      <!-- Announcements -->
+      <section class="announcements">
+        <h2>📢 Announcements</h2>
+        <ul>
+          <li>🌟 New tax logic update effective from June 1.</li>
+          <li>🧾 Auto-receipt feature now supports bulk mode.</li>
+          <li>📈 Enhanced analytics dashboard for better insights.</li>
+          <li>🚀 New feature: Group sessions for multiple mentors.</li>
+          <li>🌟 New tax logic update effective from June 1.</li>
+        </ul>
       </section>
     </main>
 
-    <!-- Firebase Scripts -->
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
-
-    <!-- Admin Logic -->
     <script src="/MentroPay/JS/admin.js"></script>
+    <script>
+      // Dark mode toggle
+      document.getElementById("toggle-theme").onclick = () => {
+        document.body.classList.toggle("dark-mode");
+      };
+
+      const ctx = document.getElementById("payoutChart").getContext("2d");
+      const payoutChart = new Chart(ctx, {
+        type: "bar", // Change to 'line', 'pie', 'bar', 'doughnut','radar' etc. if needed
+        data: {
+          labels: ["Week 1", "Week 2", "Week 3", "Week 4"],
+          datasets: [
+            {
+              label: "Total Payout (₹)",
+              data: [4500, 6200, 5100, 7300], // Example data
+              backgroundColor: "#3b82f6",
+              borderColor: "#1e40af",
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+
+      // Function to view mentors
+      function viewMentors() {
+        window.location.href = "admin-total-mentors.html";
+      }
+    </script>
   </body>
 </html>
