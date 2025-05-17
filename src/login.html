@@ -10,7 +10,7 @@
     <div class="form-box">
       <h4>WELCOME BACK</h4>
       <h1>Login to your account<span>.</span></h1>
-      <p>New here? <a href="#">Create account</a></p>
+      <p>New here? <a href="singup.html">Create account</a></p>
 
       <div class="login-options">
      
@@ -19,15 +19,11 @@
       </div>
 
       <form id="loginForm">
-        <input type="email" placeholder="Email">
-        <input type="password" placeholder="Password">
-        <div class="forgot-password">
-          <a href="#">Forgot Password?</a>
-        </div>
-        <div class="buttons">
-  
-          <button type="submit" class="login-btn">Login</button>
-        </div>
+        <input type="email" id="loginEmail" placeholder="Email" required>
+        <input type="password" id="loginPassword" placeholder="Password" required>
+        <input type="hidden" id="loginRole" value="mentor">
+      
+        <button type="submit" class="login-btn">Login</button>
       </form>
     </div>
   </div>
@@ -38,7 +34,7 @@
         option.classList.remove('active');
       });
       element.classList.add('active');
-      console.log('Switched to ' + type + ' login');
+      document.getElementById('loginRole').value = type; // save selected role
     }
   </script>
 </body>

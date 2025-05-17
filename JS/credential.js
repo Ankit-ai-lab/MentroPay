@@ -10,7 +10,6 @@
   const firebaseConfig = {
     apiKey: "AIzaSyBv6G9ozFaLwOM2uOBEe4P8e8mOn2DJjmQ",
     authDomain: "mentropay-38347.firebaseapp.com",
-    databaseURL: "https://mentropay-38347-default-rtdb.firebaseio.com",
     projectId: "mentropay-38347",
     storageBucket: "mentropay-38347.firebasestorage.app",
     messagingSenderId: "1047505078291",

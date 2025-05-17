@@ -18,10 +18,11 @@
       </div>
 
       <form id="signupForm">
-        <input type="text" placeholder="Full Name" required>
-        <input type="email" placeholder="Email" required>
-        <input type="password" placeholder="Password" required>
-        <input type="password" placeholder="Confirm Password" required>
+        <input type="text" id="signupName"  placeholder="Full Name" required>
+        <input type="email"  id="signupEmail"  placeholder="Email" required>
+        <input type="password"  id="signupPassword" placeholder="Password" required>
+        <input type="password"  id="signupConfirm" placeholder="Confirm Password" required>
+        <input type="hidden" id="signupRole" value="mentor"> <!-- default role -->
 
         <div class="buttons">
           <button type="submit" class="login-btn">Sign Up</button>
@@ -32,12 +33,18 @@
 
   <script>
     function switchLoginType(element, type) {
+      // Remove 'active' class from all options
       document.querySelectorAll('.login-option').forEach(option => {
         option.classList.remove('active');
       });
+  
+      // Add 'active' to clicked one
       element.classList.add('active');
-      console.log('Switched to ' + type + ' signup');
+  
+      // Set hidden input value to selected role
+      document.getElementById('signupRole').value = type;
     }
   </script>
+  
 </body>
 </html>

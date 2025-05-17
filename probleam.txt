@@ -73,7 +73,7 @@ Mentors should:
 
 - View session and payout history
 - Filter by date ranges
-- Download receipts
+- Download receipts 
 - Track payment status (Pending, Paid, Under Review)
 
 ### 5. **Secure Chat Between Admin and Mentor**
