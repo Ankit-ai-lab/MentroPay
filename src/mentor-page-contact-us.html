@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact Us - Mentor Dashboard</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/MentroPay/CSS/mentor-page-contact-us.css" />
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <div id="sidebar-menu" class="sidebar hidden">
+      <a class="link" href="index.html"
+        ><span class="material-symbols-outlined">home</span>Home</a
+      >
+      <a class="link" href="Mentor.html"
+        ><span class="material-symbols-outlined">insights</span>Mentor
+        Dashboard</a
+      >
+      <a class="link" href="Mentor-receipt-page.html"
+        ><span class="material-symbols-outlined">description</span>Receipts</a
+      >
+      <a class="link" href="mentor-chat.html"
+        ><span class="material-symbols-outlined">chat</span>Chat</a
+      >
+      <div id="user-info" class="user-info" style="padding: 15px">
+        <button id="logout-btn">Logout</button>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <header class="dashboard-header">
+      <span
+        id="hamburger1"
+        class="material-symbols-outlined"
+        onclick="toggleSidebar()"
+        >menu</span
+      >
+      <h1>Contact Us</h1>
+      <button id="logout">Logout</button>
+    </header>
+
+    <!-- Main Content -->
+    <main class="contact-container">
+      <section class="contact-section">
+        <h2>Get in Touch</h2>
+        <p>
+          If you have any questions or need support, please fill out the form
+          below or use the contact details.
+        </p>
+
+        <form id="contact-form" novalidate>
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Your full name"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="you@example.com"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              placeholder="Subject"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Write your message here..."
+              rows="6"
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit">Send Message</button>
+        </form>
+
+        <div class="contact-info">
+          <h3>Other Ways to Reach Us</h3>
+          <p>
+            <span class="material-symbols-outlined">call</span> Phone: +1 234
+            567 890
+          </p>
+          <p>
+            <span class="material-symbols-outlined">email</span> Email:
+            support@mentropay.com
+          </p>
+          <p>
+            <span class="material-symbols-outlined">location_on</span> Address:
+            123 Mentor St, Learning City
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      function toggleSidebar() {
+        const sidebar = document.getElementById("sidebar-menu");
+        sidebar.classList.toggle("hidden");
+      }
+
+      const contactForm = document.getElementById("contact-form");
+      contactForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        alert("Thank you for contacting us! We will get back to you shortly.");
+        contactForm.reset();
+      });
+    </script>
+  </body>
+</html>
