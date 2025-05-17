@@ -1,0 +1,94 @@
+/* session-history.css */
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6f9;
+  color: #333;
+}
+
+.header {
+  background-color: #4a90e2;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.back-btn {
+  background-color: white;
+  color: #4a90e2;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.session-history-container {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.filters {
+  margin-bottom: 1.5rem;
+}
+
+.filters label {
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.filters select,
+.filters input[type="date"] {
+  padding: 0.5rem;
+  margin-right: 1rem;
+}
+
+.custom-range {
+  display: none;
+  margin-top: 0.5rem;
+}
+
+.session-table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background: white;
+}
+
+.session-table th,
+.session-table td {
+  padding: 1rem;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.session-table th {
+  background-color: #e9f2fb;
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .filters {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .filters select,
+  .filters input {
+    margin: 0.5rem 0;
+    width: 100%;
+  }
+
+  .session-table th,
+  .session-table td {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+}
