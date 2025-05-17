@@ -1,49 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Login</title>
-  <link rel="stylesheet" href="/CSS/login.css">
-</head>
-<body>
-  <div class="container">
-    <div class="form-box">
-      <h4>WELCOME BACK</h4>
-      <h1>Login to your account<span>.</span></h1>
-      <p>Dont have an account? <a href="singup.html">Create account</a></p>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+    <!-- <link rel="stylesheet" href="/CSS/login.css"> -->
+    <link rel="stylesheet" href="/MentroPay/CSS/login.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-box">
+        <h4>WELCOME BACK</h4>
+        <h1>Login to your account<span>.</span></h1>
+        <p>Dont have an account? <a href="singup.html">Create account</a></p>
 
-      <div class="login-options">
-        <div class="login-option active" onclick="switchLoginType(this, 'mentor')">Mentor</div>
-        <div class="login-option" onclick="switchLoginType(this, 'admin')">Admin</div>
+        <div class="login-options">
+          <div
+            class="login-option active"
+            onclick="switchLoginType(this, 'mentor')"
+          >
+            Mentor
+          </div>
+          <div class="login-option" onclick="switchLoginType(this, 'admin')">
+            Admin
+          </div>
+        </div>
+
+        <form id="loginForm">
+          <input type="email" id="loginEmail" placeholder="Email" required />
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="Password"
+            required
+          />
+          <input type="hidden" id="loginRole" value="mentor" />
+
+          <button type="submit" class="login-btn">Login</button>
+        </form>
       </div>
-
-      <form id="loginForm">
-        <input type="email" id="loginEmail" placeholder="Email" required>
-        <input type="password" id="loginPassword" placeholder="Password" required>
-        <input type="hidden" id="loginRole" value="mentor">
-      
-        <button type="submit" class="login-btn">Login</button>
-      </form>
     </div>
-  </div>
 
-  <script>
-    function switchLoginType(element, type) {
-      document.querySelectorAll('.login-option').forEach(option => {
-        option.classList.remove('active');
-      });
-      element.classList.add('active');
-      document.getElementById('loginRole').value = type;
-    }
-  </script>
+    <script>
+      function switchLoginType(element, type) {
+        document.querySelectorAll(".login-option").forEach((option) => {
+          option.classList.remove("active");
+        });
+        element.classList.add("active");
+        document.getElementById("loginRole").value = type;
+      }
+    </script>
 
-  <!-- Firebase Scripts -->
-  <script type="module" src="https://www.gstatic.com/firebasejs/11.7.3/firebase-app.js"></script>
-  <script type="module" src="https://www.gstatic.com/firebasejs/11.7.3/firebase-auth.js"></script>
-  <script type="module" src="https://www.gstatic.com/firebasejs/11.7.3/firebase-database.js"></script>
-  <!-- Auth Script -->
-  <script type="module" src="../JS/auth.js"></script>
-</body>
+    <!-- Firebase Scripts -->
+    <script
+      type="module"
+      src="https://www.gstatic.com/firebasejs/11.7.3/firebase-app.js"
+    ></script>
+    <script
+      type="module"
+      src="https://www.gstatic.com/firebasejs/11.7.3/firebase-auth.js"
+    ></script>
+    <script
+      type="module"
+      src="https://www.gstatic.com/firebasejs/11.7.3/firebase-database.js"
+    ></script>
+    <!-- Auth Script -->
+    <script type="module" src="/MentroPay/JS/auth.js"></script>
+  </body>
 </html>
-
-
