@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mentor Session History</title>
+    <link
+      rel="stylesheet"
+      href="/MentroPay/CSS/Mentor-dashboard-session-history.css"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <h1>Session History</h1>
+      <a href="mentorTest.html" class="back-btn">Back to Dashboard</a>
+    </header>
+
+    <main class="session-history-container">
+      <div class="filters">
+        <label for="date-range">Filter By:</label>
+        <select id="date-range">
+          <option value="7">Last 7 Days</option>
+          <option value="15">Last 15 Days</option>
+          <option value="30">Last 30 Days</option>
+          <option value="custom">Custom Range</option>
+        </select>
+        <div id="custom-range" class="custom-range">
+          <input type="date" id="start-date" />
+          <input type="date" id="end-date" />
+        </div>
+      </div>
+
+      <table class="session-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Type</th>
+            <th>Duration</th>
+            <th>Rate</th>
+            <th>Total</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2025-05-10</td>
+            <td>1-on-1</td>
+            <td>60 mins</td>
+            <td>₹500</td>
+            <td>₹500</td>
+            <td>Paid</td>
+          </tr>
+          <tr>
+            <td>2025-05-11</td>
+            <td>Group</td>
+            <td>45 mins</td>
+            <td>₹300</td>
+            <td>₹300</td>
+            <td>Pending</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  </body>
+</html>
