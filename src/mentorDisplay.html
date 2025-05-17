@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mentors List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #f9f9f9;
+      color: #333;
+    }
+    h2 {
+      color: #004080;
+    }
+    #mentorList ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    #mentorList li {
+      background: white;
+      margin-bottom: 15px;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+    #mentorList strong {
+      color: #004080;
+    }
+  </style>
+</head>
+<body>
+  <h2>Mentors Available</h2>
+  <div id="mentorList">Loading mentors...</div>
+
+  <script>
+    const url = "https://mentropay-38347-default-rtdb.firebaseio.com/mentors.json";
+
+    async function fetchAndDisplayMentors() {
+      try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error('Network response was not ok');
+
+        const mentorsData = await response.json();
+        const mentorListDiv = document.getElementById('mentorList');
+        mentorListDiv.innerHTML = '';
+
+        if (!mentorsData) {
+          mentorListDiv.innerText = 'No mentors data available.';
+          return;
+        }
+
+        const ul = document.createElement('ul');
+
+      Object.values(mentorsData).forEach(mentor => {
+  // Skip if mentor is null or not an object
+  if (!mentor || typeof mentor !== 'object') return;
+
+  const li = document.createElement('li');
+  li.innerHTML = `
+     <strong>Id:</strong> ${mentor.id} <br>
+
+    <strong>Mentor Name:</strong> ${mentor["Mentor Name"]} <br>
+    <strong>Date:</strong> ${mentor.Date} <br>
+    <strong>Type:</strong> ${mentor.Type} <br>
+    
+    <strong>Duration:</strong> ${mentor.Duration} minutes <br>
+    <strong>Rate Per Hour:</strong> ₹${mentor.ratePerHour}
+  `;
+  ul.appendChild(li);
+});
+
+
+        mentorListDiv.appendChild(ul);
+
+      } catch (error) {
+        console.error('Fetch error:', error);
+        document.getElementById('mentorList').innerText = 'Failed to load mentors data.';
+      }
+    }
+
+    fetchAndDisplayMentors();
+  </script>
+</body>
+</html>
