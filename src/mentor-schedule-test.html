@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scheduled Sessions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="/MentroPay/CSS/mentor.css" />
+    <style>
+        .schedule-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .mentor-info {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .mentor-info h2 {
+            margin: 0;
+            color: #1976d2;
+        }
+
+        .mentor-info p {
+            margin: 10px 0;
+            color: #666;
+        }
+
+        .session-filters {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .session-filters select {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .back-button {
+            background: #1976d2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .back-button:hover {
+            background: #1565c0;
+        }
+    </style>
+</head>
+<body>
+    <div class="schedule-container">
+        <button class="back-button" onclick="window.location.href='Mentor.html'">
+            ← Back to Dashboard
+        </button>
+
+        <div class="mentor-info">
+            <h2>Your Scheduled Sessions</h2>
+            <p id="mentor-name">Loading...</p>
+            <p id="mentor-id">Mentor ID: Loading...</p>
+        </div>
+
+        <div class="session-filters">
+            <select id="status-filter">
+                <option value="all">All Status</option>
+                <option value="pending">Pending</option>
+                <option value="completed">Completed</option>
+                <option value="cancelled">Cancelled</option>
+            </select>
+
+            <select id="date-filter">
+                <option value="upcoming">Upcoming Sessions</option>
+                <option value="past">Past Sessions</option>
+                <option value="all">All Sessions</option>
+            </select>
+        </div>
+
+        <table id="mentor-sessions-table">
+            <thead>
+                <tr>
+                    <th>Date & Time</th>
+                    <th>Session Type</th>
+                    <th>Duration (min)</th>
+                    <th>Rate (₹/hr)</th>
+                    <th>Total (₹)</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Sessions will be loaded here -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Firebase Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/11.7.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.7.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.7.3/firebase-database.js"></script>
+    <script type="module" src="../JS/mentor-schedule.js"></script>
+</body>
+</html> 
