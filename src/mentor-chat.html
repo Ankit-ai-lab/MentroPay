@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mentor Chat</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/MentroPay/CSS/mentor-chat.css" />
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <div id="sidebar-menu" class="sidebar hidden">
+      <a class="link" href="mentorTest.html"
+        ><span class="material-symbols-outlined">home</span>Home</a
+      >
+      <a class="link" href="mentorTest.html"
+        ><span class="material-symbols-outlined">insights</span>Mentor
+        Dashboard</a
+      >
+      <a class="link" href="Mentor-receipt-page.html"
+        ><span class="material-symbols-outlined">description</span>Receipts</a
+      >
+      <a class="link" href="mentor-page-contact-us.html"
+        ><span class="material-symbols-outlined">call</span>Contact Us</a
+      >
+
+      <div id="user-info" class="user-info" style="padding: 15px">
+        <button id="logout-btn">Logout</button>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <header class="dashboard-header">
+      <span
+        id="hamburger1"
+        class="material-symbols-outlined"
+        onclick="toggleSidebar()"
+        >menu</span
+      >
+      <h1>Mentor Chat</h1>
+      <button id="logout">Logout</button>
+    </header>
+
+    <!-- Main Content -->
+    <main class="chat-container">
+      <section class="chat-section">
+        <h2>Chat with Admin</h2>
+        <div class="chat-window" id="chat-window">
+          <div class="message admin">Hi, how can I help you?</div>
+        </div>
+        <form id="chat-form">
+          <input
+            type="text"
+            id="chat-input"
+            placeholder="Type a message..."
+            autocomplete="off"
+            required
+          />
+          <button type="submit">Send</button>
+        </form>
+      </section>
+    </main>
+
+    <script>
+      function toggleSidebar() {
+        const sidebar = document.getElementById("sidebar-menu");
+        sidebar.classList.toggle("hidden");
+      }
+
+      const chatForm = document.getElementById("chat-form");
+      const chatWindow = document.getElementById("chat-window");
+      const chatInput = document.getElementById("chat-input");
+
+      chatForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const message = chatInput.value.trim();
+        if (!message) return;
+
+        // Append user message
+        const userMessage = document.createElement("div");
+        userMessage.classList.add("message", "user");
+        userMessage.textContent = message;
+        chatWindow.appendChild(userMessage);
+
+        // Scroll chat window down
+        chatWindow.scrollTop = chatWindow.scrollHeight;
+
+        chatInput.value = "";
+
+        // Simulated admin reply after 1 second
+        setTimeout(() => {
+          const adminReply = document.createElement("div");
+          adminReply.classList.add("message", "admin");
+          adminReply.textContent =
+            "Thanks for your message! We'll get back to you soon.";
+          chatWindow.appendChild(adminReply);
+          chatWindow.scrollTop = chatWindow.scrollHeight;
+        }, 1000);
+      });
+    </script>
+  </body>
+</html>
