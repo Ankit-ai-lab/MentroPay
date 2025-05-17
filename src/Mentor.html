@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -7,83 +8,260 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
       rel="stylesheet"
     />
-
-    <link rel="stylesheet" href="/CSS/dashboardstyle.css" />
+    <link rel="stylesheet" href="/MentroPay/CSS/mentor.css" />
+    <style>
+      /* body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+      } */
+      .sidebar {
+        width: 250px;
+        background: transparent;
+        color: white;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        padding-top: 60px;
+        transition: transform 0.3s ease-in-out;
+      }
+      .sidebar.hidden {
+        transform: translateX(-100%);
+      }
+      .sidebar .link {
+        font-family: Georgia, "Times New Roman", Times, serif;
+        font-weight: bold;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        padding: 20px;
+        color: rgb(6, 6, 6);
+        text-decoration: none;
+        border-bottom: 1px solid #090909;
+      }
+      .sidebar .link:hover {
+        background: #5ed6f7;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        transform: scale(1.1);
+      }
+      .dashboard-header {
+        position: fixed;
+        top: 0;
+        left: 250px;
+        right: 0;
+        height: 60px;
+        background: #1976d2;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+      }
+      .dashboard-header span {
+        cursor: pointer;
+      }
+      main.mentor-dashboard {
+        margin-left: 250px;
+        margin-top: 60px;
+        padding: 20px;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 20px;
+      }
+      section {
+        background: #f9f9f9;
+        padding: 20px;
+        border-radius: 10px;
+      }
+      .summary-cards,
+      .quick-actions {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+        flex-wrap: wrap;
+      }
+      .card,
+      .quick-actions button {
+        flex: 1;
+        background: white;
+        border-radius: 8px;
+        padding: 15px;
+        text-align: center;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      }
+      .chat-section,
+      .notifications,
+      .daily-quote,
+      .feedback-card,
+      .profile-summary {
+        margin-top: 20px;
+      }
+      .chat-window {
+        position: flex;
+        background: #fff;
+        height: 150px;
+        overflow-y: auto;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: inset 0 0 5px #ccc;
+      }
+      .message.admin {
+        background: #e3f2fd;
+        padding: 10px;
+        border-radius: 8px;
+        margin-bottom: 5px;
+      }
+      .daily-quote {
+        font-style: italic;
+        color: #555;
+        background: #fff8e1;
+        padding: 10px;
+        border-left: 5px solid #ffc107;
+      }
+      .profile-summary {
+        text-align: center;
+        background: #e0f7fa;
+        padding: 15px;
+        border-radius: 10px;
+      }
+      .profile-summary img {
+        width: 80px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+      }
+      /* .feedback-card,
+      .notifications {
+        background: #fff;
+        border: 1px solid #ddd;
+        padding: 10px;
+        border-radius: 8px;
+      } */
+      .feedback-card button {
+        margin-top: 10px;
+        background: #1976d2;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      @media (max-width: 768px) {
+        .dashboard-header {
+          left: 0;
+        }
+        .sidebar {
+          position: absolute;
+        }
+        main.mentor-dashboard {
+          margin-left: 0;
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
   </head>
   <body>
+    <div id="sidebar-menu" class="sidebar hidden">
+      <a class="link" href="#"
+        ><span class="material-symbols-outlined">home</span>Home</a
+      >
+      <a class="link" href="Mentor-receipt-page.html"
+        ><span class="material-symbols-outlined">description</span>Receipts</a
+      >
+      <a class="link" href="mentor-chat.html"
+        ><span class="material-symbols-outlined">chat</span>Chat</a
+      >
+      <a class="link" href="mentor-page-contact-us.html"
+        ><span class="material-symbols-outlined">call</span>Contact Us</a
+      >
+    </div>
+
     <header class="dashboard-header">
-      <span class="material-symbols-outlined menu-icon" id="hamburger"
+      <span
+        id="hamburger1"
+        class="material-symbols-outlined"
+        onclick="toggleSidebar()"
         >menu</span
       >
       <h1>Mentor Dashboard</h1>
       <button id="logout">Logout</button>
     </header>
 
-    <!-- Sidebar Menu -->
-    <div id="sidebar-menu" class="sidebar hidden">
-      <a class="link" href="index.html">Home</a>
-      <a class="link" href="campaign.html">Admin Dashboard</a>
-      <a class="link" href="donate.html">Mentor Dashboard</a>
-      <a class="link" href="contact.html">Contact Us</a>
-
-      <a href="login.html" id="signin-btn"><button>Signin</button></a>
-
-      <div id="user-info" class="user-info">
-        <div id="user-initial" class="user-initial">U</div>
-        <button id="logout-btn">Logout</button>
-      </div>
-    </div>
-
     <main class="mentor-dashboard">
-      <section class="session-history">
-        <h2>Session History</h2>
-        <div class="filters">
-          <label for="mentor-filter">Filter:</label>
-          <select id="mentor-filter">
-            <option value="7">Last 7 Days</option>
-            <option value="15">Last 15 Days</option>
-            <option value="30">Last 30 Days</option>
-            <option value="custom">Custom Range</option>
-          </select>
-          <div id="mentor-custom-range" style="display: none">
-            <input type="date" id="mentor-start-date" />
-            <input type="date" id="mentor-end-date" />
+      <div>
+        <section class="profile-summary">
+          <img src="/MentroPay/Images/image.png" alt="Profile" />
+          <h3>Hi, Mentor John!</h3>
+          <p>⭐ 4.8 | 120 Sessions</p>
+        </section>
+
+        <section id="payout-summary" class="payout-summary">
+          <h2>Your Payout Summary</h2>
+          <div class="summary-cards">
+            <div class="card">Total Sessions: <strong>0</strong></div>
+            <div class="card">Pending Amount: <strong>₹0</strong></div>
+            <div class="card">Paid: <strong>₹0</strong></div>
           </div>
+        </section>
+
+        <div class="quick-actions">
+          <button>Schedule Session</button>
+          <button>Update Availability</button>
+          <button>Request Payout</button>
         </div>
-        <table id="mentor-session-table">
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Type</th>
-              <th>Duration</th>
-              <th>Rate</th>
-              <th>Total</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-        <div id="mentor-total" class="total-display"></div>
-        <button id="download-receipt">Download Receipt</button>
-      </section>
 
-      <section class="chat-section">
-        <h2>Chat with Admin</h2>
-        <div class="chat-window" id="chat-window"></div>
+        <section class="notifications">
+          <h4>Notifications</h4>
+          <ul>
+            <li>✔ Payment for ₹800 processed</li>
+            <li>🔔 New message from Admin</li>
+            <li>📅 Group session at 5 PM today</li>
+          </ul>
+        </section>
 
-        <form id="chat-form">
-          <input
-            type="text"
-            id="chat-input"
-            placeholder="Type a message..."
-            required
-          />
-          <button type="submit">Send</button>
-        </form>
-      </section>
+        <section id="session-history" class="session-history">
+          <div class="presence-tracker">
+            <span class="material-symbols-outlined">timer</span>
+            Time Present Today:
+            <strong id="live-presence-time">00:00:00</strong>
+          </div>
+        </section>
+
+        <section class="daily-quote">
+          💡 "A good teacher is like a candle—it consumes itself to light the
+          way for others."
+        </section>
+      </div>
+
+      <div>
+        <section id="chat" class="chat-section">
+          <h2>Chat with Admin</h2>
+          <div class="chat-window" id="chat-window">
+            <div class="message admin">Hi, how can I help you?</div>
+          </div>
+          <form id="chat-form">
+            <input
+              type="text"
+              id="chat-input"
+              placeholder="Type a message..."
+              required
+            />
+            <button type="submit">Send</button>
+          </form>
+        </section>
+
+        <section class="feedback-card">
+          <p>We value your feedback. Got suggestions?</p>
+          <button>Give Feedback</button>
+        </section>
+      </div>
     </main>
 
-    <script type="module" src="firebase-config.js"></script>
-    <script type="module" src="/MentroPay/JS/mentor.js"></script>
+    <script>
+      function toggleSidebar() {
+        document.getElementById("sidebar-menu").classList.toggle("hidden");
+      }
+    </script>
   </body>
 </html>
