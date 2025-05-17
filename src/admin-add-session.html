@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Add Mentor Session</title>
+    <link rel="stylesheet" href="/MentroPay/CSS/admin-add-session.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="main-header">
+      <h1>MentroPay</h1>
+      <a href="adminTest.html" class="back-btn">← Back to Dashboard</a>
+    </header>
+
+    <!-- Form Container -->
+    <div class="container">
+      <h2>Add Mentor Session</h2>
+      <p class="subtitle">
+        Log a session with accurate details for transparent payouts.
+      </p>
+
+      <form id="session-form">
+        <div class="form-group">
+          <label for="mentorId">Mentor ID</label>
+          <input
+            type="text"
+            id="mentorId"
+            placeholder="Enter mentor's ID"
+            required
+          />
+          <label for="mentorName">Mentor Name</label>
+          <input
+            type="text"
+            id="mentorName"
+            placeholder="Enter mentor's full name"
+            required
+          />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="sessionDate">Date & Time</label>
+            <input type="datetime-local" id="sessionDate" required />
+          </div>
+
+          <div class="form-group">
+            <label for="sessionType">Session Type</label>
+            <select id="sessionType" required>
+              <option value="">Select type</option>
+              <option value="Live">Live</option>
+              <option value="Evaluation">Evaluation</option>
+              <option value="Recorded">Recorded</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="duration">Duration (minutes)</label>
+            <input type="number" id="duration" placeholder="e.g. 45" required />
+          </div>
+
+          <div class="form-group">
+            <label for="rate">Rate (₹/hour)</label>
+            <input type="number" id="rate" placeholder="e.g. 800" required />
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn">➕ Add Session</button>
+      </form>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+      &copy; 2025 MentroPay • All rights reserved.
+    </footer>
+  </body>
+</html>
+
+<script src="/MentroPay/JS/admin.js"></script>

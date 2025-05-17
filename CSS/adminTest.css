@@ -1,0 +1,273 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: #f7f9fc;
+  color: #0a0a0a;
+}
+
+header {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 2em;
+  background-color: rgb(33, 77, 106);
+  color: #fff;
+}
+
+.glow-text {
+  font-size: 2rem;
+  color: #fff;
+  text-shadow: 0 0 10px #00eaff, 0 0 20px #00eaff;
+}
+
+.sidebar {
+  background: #1e293b;
+  padding: 1em;
+  width: 250px;
+  min-height: 100vh;
+  position: fixed;
+  top: 73px;
+  left: 0;
+}
+
+.sidebar nav a {
+  display: block;
+  color: #eee;
+  padding: 10px 0;
+  text-decoration: none;
+  border-bottom: 1px solid #374151;
+}
+
+.sidebar nav a:hover {
+  background-color: #334155;
+  color: #00eaff;
+}
+
+.sidebar nav a.active {
+  background-color: #334155;
+  color: #00eaff;
+}
+
+/* Search Input */
+.header-actions input {
+  padding: 0.5em 1em;
+  border-radius: 6px;
+  border: none;
+  font-size: 0.95rem;
+  width: 200px;
+  background-color: #f1f5f9;
+  color: #111827;
+  transition: box-shadow 0.3s ease;
+}
+
+.header-actions input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #38bdf8;
+}
+
+.dark-mode input {
+  background-color: #1e293b;
+  color: #f8fafc;
+  border: 1px solid #475569;
+}
+
+/* Buttons */
+.header-actions button {
+  padding: 0.5em 1em;
+  font-size: 0.90rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #38bdf8;
+  color: white;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.header-actions button:hover {
+  background-color: #0ea5e9;
+  transform: translateY(-2px);
+}
+
+.header-actions button:active {
+  transform: scale(0.98);
+}
+
+main {
+  margin-left: 260px;
+  padding: 7em;
+}
+
+.features-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.features-list li {
+  margin-bottom: 0.5em;
+  padding-left: 1em;
+  position: relative;
+}
+
+.features-list li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #00b894;
+}
+
+/* Stats Cards */
+.stats {
+  display: flex;
+  gap: 1em;
+  margin-bottom: 2em;
+  flex-wrap: wrap;
+}
+
+.stat-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1em;
+  flex: 1 1 200px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.stat-card h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #555;
+}
+
+.stat-card p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 0.5em;
+  color: #0d9488;
+}
+
+.stat-card button {
+  padding: 0.5em 1em;
+  font-size: 0.90rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #38bdf8;
+  color: white;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.stat-card button:hover {
+  background-color: #0ea5e9;
+  transform: translateY(-2px);
+}
+
+/* Tables */
+.recent-activity table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.recent-activity th,
+.recent-activity td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.recent-activity th {
+  background: #f3f4f6;
+}
+
+.chart-placeholder {
+  background: #e5e7eb;
+  height: 200px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #555;
+}
+
+/* Announcements */
+.announcements ul {
+  background: #fffbea;
+  padding: 1em;
+  border-radius: 10px;
+  list-style: none;
+}
+
+.announcements li {
+  padding: 0.5em 0;
+}
+
+/* Graph Placeholder */
+.payout-overview canvas {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 1rem;
+  width: 400px;
+  height: 300px;
+}
+
+.chart-placeholder {
+  background: #e5e7eb;
+  height: 200px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #555;
+}
+
+/* Dark Mode */
+.dark-mode {
+  background: #0f172a;
+  color: #fff;
+}
+
+.dark-mode header {
+  background: #1e293b;
+}
+
+.dark-mode .stat-card {
+  background: #1e293b;
+  color: #fff;
+}
+
+.dark-mode .recent-activity table,
+.dark-mode .announcements ul {
+  background: #1e293b;
+  color: #fff;
+}
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    position: static;
+    min-height: auto;
+  }
+
+  main {
+    margin-left: 0;
+    padding: 1em;
+  }
+}

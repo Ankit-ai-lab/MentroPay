@@ -1,0 +1,82 @@
+/* Make body a flex column layout */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f9fafb;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ensure content expands to fill space */
+main.table-container {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1000px;
+  margin: auto;
+  width: 100%;
+}
+
+.main-header {
+  background-color: #1f2937;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.back-btn {
+  color: #fcd34d;
+  text-decoration: none;
+  font-weight: bold;
+  border: 2px solid #fcd34d;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.back-btn:hover {
+  background-color: #fcd34d;
+  color: #1f2937;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+thead {
+  background-color: #1e40af;
+  color: white;
+}
+
+th, td {
+  padding: 12px 20px;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+tbody tr:hover {
+  background-color: #f3f4f6;
+}
+
+/* Fixed footer styling */
+.main-footer {
+  text-align: center;
+  color: #888;
+  font-size: 0.9rem;
+  padding: 1rem;
+  background-color: #fff;
+  border-top: 1px solid #ddd;
+}
