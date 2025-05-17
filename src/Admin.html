@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Admin Dashboard - Payout System</title>
+   <!--  <link rel="stylesheet" href="/MentroPay/CSS/dashboardstyle.css" /> -->
     <link rel="stylesheet" href="/MentroPay/CSS/dashboardstyle.css" />
   </head>
   <body>
@@ -17,9 +18,9 @@
     </header>
 
     <div id="sidebar-menu" class="sidebar hidden">
-      <a class="link" href="index.html">Home</a>
-      <a class="link" href="campaign.html">Admin Dashboard</a>
-      <a class="link" href="donate.html">Mentor Dashboard</a>
+      <a class="link" href="/MentroPay/src/index.html">Home</a>
+      <a class="link" href="/MentroPay/src/admin-test.html">Admin Dashboard</a>
+      <a class="link" href="/MentroPay/src/Mentor.html">Mentor Dashboard</a>
       <a class="link" href="contact.html">Contact Us</a>
 
       <a href="login.html" id="signin-btn"><button>Signin</button></a>
@@ -31,17 +32,27 @@
     </div>
 
     <main>
+      <!-- Add this new section before your existing sections -->
+      <section class="mentor-list-section">
+        <h2>Mentor List</h2>
+        <div class="controls">
+          <input type="text" id="mentorSearch" placeholder="Search mentors...">
+          <button id="exportButton">Export CSV</button>
+        </div>
+        <div id="mentor-list"></div>
+        <div id="pagination"></div>
+      </section>
+
       <!-- Add Session Form -->
       <section>
         <h2>Add Mentor Session</h2>
         <form id="session-form">
           <input
             type="text"
-            id="mentorId"
-            placeholder="Mentor ID"
+            id="mentorName"
+            placeholder="Mentor Name"
             required
-          />  
-          <input type="text" id="mentorName" placeholder="Mentor Name" required />
+          />
           <input type="datetime-local" id="sessionDate" required />
           <select id="sessionType" required>
             <option value="">Session Type</option>
@@ -61,8 +72,6 @@
             placeholder="Rate (per hour ₹)"
             required
           />
-
-          <input type="text" id="createdBy" placeholder="Created By" required /> 
           <button type="submit">Add</button>
         </form>
       </section>
@@ -131,6 +140,60 @@
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
 
     <!-- Admin Logic -->
-    <script src="/MentroPay/JS/admin.js"></script>
+    <script src="/JS/admin.js"></script>
+
+    <style>
+      .mentor-list-section {
+        background: white;
+        padding: 20px;
+        margin: 20px 0;
+      }
+      .controls {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 15px;
+      }
+      .mentor-card {
+        background: #f8f9fa;
+        padding: 15px;
+        margin: 10px 0;
+        border-left: 4px solid #4CAF50;
+      }
+      #mentorSearch { flex: 1; padding: 8px; }
+      button { padding: 8px 15px; background: #4CAF50; color: white; border: none; }
+      button:disabled { background: #ccc; }
+
+      .mentor-controls {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+
+      .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .pagination button {
+        padding: 8px 15px;
+        border: none;
+        background: #4CAF50;
+        color: white;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .pagination button:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+      }
+
+      .pagination span {
+        color: #666;
+      }
+    </style>
   </body>
 </html>
