@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Admin Dashboard - Payout System</title>
+   <!--  <link rel="stylesheet" href="/MentroPay/CSS/dashboardstyle.css" /> -->
+    <link rel="stylesheet" href="/CSS/dashboardstyle.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Admin Dashboard</h1>
+      <div class="header-actions">
+        <input type="text" id="searchInput" placeholder="Search mentor..." />
+        <button id="export-csv">Export CSV</button>
+        <button id="generate-receipt">Generate & Send Receipt</button>
+      </div>
+    </header>
+
+    <div id="sidebar-menu" class="sidebar hidden">
+      <a class="link" href="index.html">Home</a>
+      <a class="link" href="campaign.html">Admin Dashboard</a>
+      <a class="link" href="donate.html">Mentor Dashboard</a>
+      <a class="link" href="contact.html">Contact Us</a>
+
+      <a href="login.html" id="signin-btn"><button>Signin</button></a>
+
+      <div id="user-info" class="user-info">
+        <div id="user-initial" class="user-initial">U</div>
+        <button id="logout-btn">Logout</button>
+      </div>
+    </div>
+
+    <main>
+      <!-- Add this new section before your existing sections -->
+      <section class="mentor-list-section">
+        <h2>Mentor List</h2>
+        <div class="controls">
+          <input type="text" id="mentorSearch" placeholder="Search mentors...">
+          <button id="exportButton">Export CSV</button>
+        </div>
+        <div id="mentor-list"></div>
+        <div id="pagination"></div>
+      </section>
+
+      <!-- Add Session Form -->
+      <section>
+        <h2>Add Mentor Session</h2>
+        <form id="session-form">
+          <input
+            type="text"
+            id="mentorName"
+            placeholder="Mentor Name"
+            required
+          />
+          <input type="datetime-local" id="sessionDate" required />
+          <select id="sessionType" required>
+            <option value="">Session Type</option>
+            <option value="Live">Live</option>
+            <option value="Evaluation">Evaluation</option>
+            <option value="Recorded">Recorded</option>
+          </select>
+          <input
+            type="number"
+            id="duration"
+            placeholder="Duration (min)"
+            required
+          />
+          <input
+            type="number"
+            id="rate"
+            placeholder="Rate (per hour ₹)"
+            required
+          />
+          <button type="submit">Add</button>
+        </form>
+      </section>
+
+      <!-- Session Table with Filters -->
+      <section>
+        <h2>All Sessions</h2>
+        <div class="filter-bar">
+          <label for="filter">Filter:</label>
+          <select id="filter">
+            <option value="7">Last 7 days</option>
+            <option value="15">Last 15 days</option>
+            <option value="30">Last 30 days</option>
+            <option value="all">All</option>
+          </select>
+        </div>
+
+        <table id="session-table">
+          <thead>
+            <tr>
+              <th>Mentor</th>
+              <th>Type</th>
+              <th>Duration</th>
+              <th>Rate</th>
+              <th>Total</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Session rows injected here -->
+          </tbody>
+        </table>
+        <div class="total-display">Total Payout: ₹0</div>
+      </section>
+
+      <!-- Receipt Modal -->
+      <div id="receipt-modal" class="modal hidden">
+        <div class="modal-content">
+          <h3>Receipt Preview</h3>
+          <div id="receipt-details">
+            <!-- Filled dynamically -->
+          </div>
+          <button id="close-receipt">Close</button>
+        </div>
+      </div>
+
+      <!-- Chat Section -->
+      <section>
+        <h2>Chat with Mentors</h2>
+        <div class="chat-window" id="chat-window">
+          <!-- Example message -->
+          <!-- <div class="message"><span>Admin:</span> Hello! <span class="time">10:32 AM</span></div> -->
+        </div>
+        <div class="chat-input-container">
+          <textarea
+            id="chat-textarea"
+            placeholder="Type your message here..."
+          ></textarea>
+          <button id="send-btn">Send</button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Firebase Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+
+    <!-- Admin Logic -->
+    <script src="/JS/admin.js"></script>
+
+    <style>
+      .mentor-list-section {
+        background: white;
+        padding: 20px;
+        margin: 20px 0;
+      }
+      .controls {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 15px;
+      }
+      .mentor-card {
+        background: #f8f9fa;
+        padding: 15px;
+        margin: 10px 0;
+        border-left: 4px solid #4CAF50;
+      }
+      #mentorSearch { flex: 1; padding: 8px; }
+      button { padding: 8px 15px; background: #4CAF50; color: white; border: none; }
+      button:disabled { background: #ccc; }
+
+      .mentor-controls {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+
+      .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .pagination button {
+        padding: 8px 15px;
+        border: none;
+        background: #4CAF50;
+        color: white;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .pagination button:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+      }
+
+      .pagination span {
+        color: #666;
+      }
+    </style>
+  </body>
+</html>

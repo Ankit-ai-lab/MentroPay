@@ -29,33 +29,38 @@
     </div>
 
     <main>
-      <div class="main-content">
-        <!-- Stats Section -->
-        <section class="stats">
-          <div class="stat-card">
-            <h3>Total Mentors</h3>
-            <p id="total-mentors">280</p>
-            <button
-              id="view-mentors"
-              class="view-button"
-              onclick="viewMentors()"
-            >
-              View
-            </button>
-          </div>
-          <div class="stat-card">
-            <h3>Sessions This Month</h3>
-            <p id="monthly-sessions">112</p>
-          </div>
-          <div class="stat-card">
-            <h3>Total Payout</h3>
-            <p id="total-payout">₹78,450</p>
-          </div>
-          <div class="stat-card">
-            <h3>Pending Receipts</h3>
-            <p id="pending-receipts">6</p>
-          </div>
-        </section>
+      <!-- Add Session Form -->
+      <section>
+        <h2>Add Mentor Session</h2>
+        <form id="session-form">
+          <input
+            type="text"
+            id="mentorName"
+            placeholder="Mentor Name"
+            required
+          />
+          <input type="datetime-local" id="sessionDate" required />
+          <select id="sessionType" required>
+            <option value="">Session Type</option>
+            <option value="Live">Live</option>
+            <option value="Evaluation">Evaluation</option>
+            <option value="Recorded">Recorded</option>
+          </select>
+          <input
+            type="number"
+            id="duration"
+            placeholder="Duration (min)"
+            required
+          />
+          <input
+            type="number"
+            id="rate"
+            placeholder="Rate (per hour ₹)"
+            required
+          />
+          <button type="submit">Add</button>
+        </form>
+      </section>
 
         <!-- Recent Activity -->
         <section class="recent-activity">
