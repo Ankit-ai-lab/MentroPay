@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Audit Trail - Admin Dashboard</title>
+    <link rel="stylesheet" href="/MentroPay/CSS/admin-audit-trail.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Audit Trail</h1>
+      <div class="header-actions">
+        <button onclick="window.location.href='Admin.html'" class="back-btn">
+          ← Back to Dashboard
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="filter-section">
+        <label for="actionFilter">Filter by Action:</label>
+        <select id="actionFilter">
+          <option value="all">All</option>
+          <option value="session">Session</option>
+          <option value="breakdown">Breakdown Logic</option>
+          <option value="receipt">Receipt</option>
+          <option value="chat">Chat</option>
+        </select>
+
+        <label for="dateFilter">Date:</label>
+        <input type="date" id="dateFilter" />
+
+        <button onclick="applyFilters()">Apply Filters</button>
+      </section>
+
+      <section class="audit-log">
+        <table id="auditTable">
+          <thead>
+            <tr>
+              <th>Timestamp</th>
+              <th>User</th>
+              <th>Action</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Logs will be inserted dynamically -->
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 MentroPay Admin Panel</p>
+    </footer>
+
+    <script src="/MentroPay/JS/audit.js"></script>
+  </body>
+</html>
