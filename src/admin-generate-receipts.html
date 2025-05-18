@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generate & Send Receipts</title>
+    <link rel="stylesheet" href="/MentroPay/CSS/admin-generate-receipts.css" />
+  </head>
+  <body>
+    <header>
+      <h1 class="glow-text">Generate & Send Receipts</h1>
+      <a href="Admin.html" class="back-btn">⬅ Back to Dashboard</a>
+    </header>
+
+    <main>
+      <section class="receipt-generator">
+        <h2>Generate Receipt</h2>
+        <form id="receipt-form">
+          <input
+            type="text"
+            id="mentorName"
+            placeholder="Mentor Name"
+            required
+          />
+          <input
+            type="email"
+            id="mentorEmail"
+            placeholder="Mentor Email"
+            required
+          />
+          <input type="month" id="receiptMonth" required />
+          <textarea
+            id="sessionDetails"
+            placeholder="Enter session details..."
+            rows="5"
+            required
+          ></textarea>
+          <input
+            type="number"
+            id="totalAmount"
+            placeholder="Total Amount (₹)"
+            required
+          />
+          <button type="submit">Generate & Send</button>
+        </form>
+        <div id="receipt-status" class="status-msg"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 MentroPay | All Rights Reserved.</p>
+    </footer>
+
+    <script src="/MentroPay/JS/receipts.js"></script>
+  </body>
+</html>
