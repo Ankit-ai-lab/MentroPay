@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MentroPay - EdTech Payout Automation</title>
     <link rel="stylesheet" href="/MentroPay/CSS/index.css" />
-    <link rel="icon" href="images/logo-icon.png" type="image/png" />
+    <link rel="icon" href="/MentroPay/Images/logo-icon.png" type="image/png" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header>
@@ -20,7 +24,7 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
-      <a href="register.html" class="cta-button">Get Started</a>
+      <a href="singup.html" class="cta-button">Get Started</a>
     </header>
 
     <section class="hero">
@@ -31,37 +35,42 @@
       </div>
     </section>
 
+    <!-- More sections... -->
+    <!-- Features Section  -->
+
     <section id="features" class="features">
-      <!-- <h2>Core Features</h2> -->
       <div class="feature-item">
-        <img src="/MentroPay/Images/MentorReg.jpg" alt="Feature 1" />
+        <img src="/MentroPay/Images/MentorReg.jpg" alt="Mentor Registration" />
         <h3>Mentor Registration</h3>
         <p>Seamless onboarding for mentors to set up their profiles.</p>
       </div>
       <div class="feature-item">
-        <img src="/MentroPay/Images/SessionTracker.jpg" alt="Feature 2" />
+        <img
+          src="/MentroPay/Images/SessionTracker.jpg"
+          alt="Session Tracking"
+        />
         <h3>Session Tracking</h3>
         <p>Monitor live sessions, recorded reviews, and evaluations.</p>
       </div>
       <div class="feature-item">
-        <img src="/MentroPay/Images/RateManagement.jpg" alt="Feature 3" />
+        <img src="/MentroPay/Images/RateManagement.jpg" alt="Rate Management" />
         <h3>Rate Management</h3>
         <p>Define and manage different payout rates effortlessly.</p>
       </div>
       <div class="feature-item">
-        <img src="/MentroPay/Images/TaxCalculator.jpg" alt="Feature 4" />
+        <img src="/MentroPay/Images/TaxCalculator.jpg" alt="Tax Calculations" />
         <h3>Tax Calculations</h3>
         <p>
           Automatically calculate applicable taxes based on mentor location.
         </p>
       </div>
       <div class="feature-item">
-        <img src="/MentroPay/Images/BillPay.jpg" alt="Feature 5" />
+        <img src="/MentroPay/Images/BillPay.jpg" alt="Payment Disbursement" />
         <h3>Payment Disbursement</h3>
         <p>Process and disburse payments to mentors securely.</p>
       </div>
       <div class="feature-item">
-        <img src="/MentroPay/Images/AuditTrail.jpg" alt="Feature 6" />
+        <img src="/MentroPay/Images/AuditTrail.jpg" alt="Audit Trail" />
         <h3>Audit Trail</h3>
         <p>
           Maintain a transparent record of all transactions for accountability.
@@ -69,30 +78,129 @@
       </div>
     </section>
 
+    <!-- Testimonials Section -->
+
     <section id="testimonials" class="testimonials">
       <h2>What Our Mentors Say</h2>
-      <div class="testimonial">
-        <p>
-          "MentroPay has transformed how we manage our payments. It's efficient
-          and reliable."
-        </p>
-        <cite>- John Doe, Mentor</cite>
+
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <img
+            src="/MentroPay/Images/profileLogo.png"
+            alt="Mentor John"
+            class="mentor-img"
+          />
+          <p>
+            "MentroPay has transformed how we manage our payments. It's
+            efficient and reliable."
+          </p>
+          <div class="stars">★★★★★</div>
+          <cite>- John Doe, Mentor</cite>
+        </div>
+
+        <div class="testimonial-card">
+          <img
+            src="/MentroPay/Images/profileLogo.png"
+            alt="Mentor Jane"
+            class="mentor-img"
+          />
+          <p>
+            "The automation features save me so much time. Highly recommend it
+            to other mentors."
+          </p>
+          <div class="stars">★★★★☆</div>
+          <cite>- Jane Smith, Mentor</cite>
+        </div>
+
+        <div class="testimonial-card">
+          <img
+            src="/MentroPay/Images/profileLogo.png"
+            alt="Mentor Ali"
+            class="mentor-img"
+          />
+          <p>
+            "Love the detailed payout breakdown and downloadable receipts. Super
+            transparent!"
+          </p>
+          <div class="stars">★★★★★</div>
+          <cite>- Ali Rahman, Senior Mentor</cite>
+        </div>
+
+        <div class="testimonial-card">
+          <img
+            src="/MentroPay/Images/profileLogo.png"
+            alt="Mentor Neha"
+            class="mentor-img"
+          />
+          <p>
+            "Customer support is top-notch and the dashboard is very intuitive.
+            Great experience!"
+          </p>
+          <div class="stars">★★★★★</div>
+          <cite>- Neha Kapoor, Evaluation Expert</cite>
+        </div>
       </div>
-      <div class="testimonial">
-        <p>
-          "The automation features save me so much time. Highly recommend it to
-          other mentors."
-        </p>
-        <cite>- Jane Smith, Mentor</cite>
+
+      <div class="testimonial-cta">
+        <h3>Join hundreds of mentors using MentroPay</h3>
+        <a href="singup.html" class="cta-button">Get Started Now</a>
+      </div>
+
+      <div class="highlight-features">
+        <h3>Why MentroPay?</h3>
+        <ul>
+          <li>✔️ Real-time session tracking</li>
+          <li>✔️ Tax-compliant invoicing</li>
+          <li>✔️ Multiple payout methods (UPI, Bank Transfer, PayPal)</li>
+          <li>✔️ Notifications for payout status updates</li>
+          <li>✔️ Secure data handling and GDPR compliant</li>
+        </ul>
       </div>
     </section>
 
+    <!-- Contact Section for Mentors  -->
+
     <footer id="contact">
-      <p>&copy; 2025 MentroPay. All rights reserved.</p>
-      <div class="social-media">
-        <a href="#"><img src="images/facebook-icon.png" alt="Facebook" /></a>
-        <a href="#"><img src="images/twitter-icon.png" alt="Twitter" /></a>
-        <a href="#"><img src="images/linkedin-icon.png" alt="LinkedIn" /></a>
+      <div class="footer-content">
+        <div class="footer-section about">
+          <h3>About MentroPay</h3>
+          <p>
+            MentroPay is your all-in-one platform to automate, track, and manage
+            EdTech mentor payouts with transparency and ease.
+          </p>
+        </div>
+        <div class="footer-section links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="register.html">Register</a></li>
+          </ul>
+        </div>
+        <div class="footer-section contact">
+          <h3>Contact Us</h3>
+          <p>Email: mentroPay@gmail.com</p>
+          <p>Phone: +91-9999999999</p>
+          <p>Location: Bengaluru, India</p>
+        </div>
+        <div class="footer-section social-media">
+          <h3>Follow Us</h3>
+          <a href="https://www.facebook.com/rinkesh.thakur.98/"
+            ><i class="bx bxl-facebook"></i
+          ></a>
+          <a href="https://www.instagram.com/r_c_thakur/"
+            ><i class="bx bxl-instagram"></i
+          ></a>
+          <a href="https://www.linkedin.com/in/rinkesh-thakur-3b985a160/"
+            ><i class="bx bxl-linkedin"></i
+          ></a>
+          <a href="https://github.com/RCThakur"
+            ><i class="bx bxl-github"></i
+          ></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 MentroPay. All rights reserved.</p>
       </div>
     </footer>
 
