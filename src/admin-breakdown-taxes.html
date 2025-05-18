@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Breakdown Logic & Taxes</title>
+    <link rel="stylesheet" href="/MentroPay/CSS/admin-breakdown-taxes.css" />
+  </head>
+  <body>
+    <header class="header">
+      <h1>Define Breakdown Logic & Taxes</h1>
+      <a href="Admin.html" class="back-btn">Back to Dashboard</a>
+    </header>
+
+    <main>
+      <section class="form-section">
+        <form id="breakdown-form">
+          <label for="sessionType">Session Type:</label>
+          <select id="sessionType" required>
+            <option value="">Select type</option>
+            <option value="Live">Live</option>
+            <option value="Evaluation">Evaluation</option>
+            <option value="Recorded">Recorded</option>
+          </select>
+
+          <label for="baseRate">Base Rate (₹):</label>
+          <input type="number" id="baseRate" required />
+
+          <label for="taxRate">Tax Rate (%):</label>
+          <input type="number" id="taxRate" required />
+
+          <label for="platformFee">Platform Fee (%):</label>
+          <input type="number" id="platformFee" required />
+
+          <button type="submit">Add Breakdown</button>
+        </form>
+      </section>
+
+      <section class="table-section">
+        <h2>Defined Breakdowns</h2>
+        <table id="breakdown-table">
+          <thead>
+            <tr>
+              <th>Session Type</th>
+              <th>Base Rate</th>
+              <th>Tax (%)</th>
+              <th>Platform Fee (%)</th>
+              <th>Net Pay</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+    </main>
+
+    <footer class="footer">&copy; 2025 MentroPay Admin System</footer>
+  </body>
+</html>
