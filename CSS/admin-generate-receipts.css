@@ -1,0 +1,88 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f7f9fc;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background: #1e3a8a;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.glow-text {
+  text-shadow: 0 0 8px #00f7ff;
+  font-size: 1.8rem;
+}
+
+.back-btn {
+  text-decoration: none;
+  color: white;
+  background-color: #2563eb;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}
+
+main {
+  flex: 1;
+  padding: 2rem;
+}
+
+.receipt-generator {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.receipt-generator h2 {
+  color: #1e40af;
+  margin-bottom: 1.5rem;
+}
+
+form input,
+form textarea,
+form button {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.8rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+form button {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+form button:hover {
+  background-color: #1d4ed8;
+}
+
+.status-msg {
+  margin-top: 1rem;
+  font-weight: bold;
+  color: green;
+}
+
+footer {
+  background: #1e3a8a;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
